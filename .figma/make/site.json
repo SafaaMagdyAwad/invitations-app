@@ -1,0 +1,10 @@
+{
+  "description": "Create and manage elegant Arabic electronic wedding and event invitations with guest tracking, RSVP, QR check-in, and customizable templates.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
