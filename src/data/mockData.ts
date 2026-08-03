@@ -18,22 +18,21 @@ export const pieSlices = [
 ]
 
 export const guestList: Guest[] = [
-  { id: 1, name: 'أحمد محمد العمري', phone: '0501234567', status: 'confirmed', qr: 'used', checked: true },
-  { id: 2, name: 'سارة عبدالله الخالدي', phone: '0559876543', status: 'confirmed', qr: 'sent', checked: false },
-  { id: 3, name: 'محمد يوسف الشمري', phone: '0531112233', status: 'pending', qr: 'pending', checked: false },
-  { id: 4, name: 'نورة سعد القحطاني', phone: '0567890123', status: 'declined', qr: 'none', checked: false },
-  { id: 5, name: 'عبدالرحمن فهد الدوسري', phone: '0543219876', status: 'confirmed', qr: 'sent', checked: false },
-  { id: 6, name: 'ريم خالد المطيري', phone: '0512345678', status: 'pending', qr: 'pending', checked: false },
-  { id: 7, name: 'فيصل عمر الغامدي', phone: '0556789012', status: 'confirmed', qr: 'used', checked: true },
-  { id: 8, name: 'منى ناصر الزهراني', phone: '0534567890', status: 'pending', qr: 'pending', checked: false },
-  { id: 9, name: 'خالد سليمان البقمي', phone: '0548765432', status: 'confirmed', qr: 'sent', checked: false },
-  { id: 10, name: 'لمياء حسن العتيبي', phone: '0522334455', status: 'declined', qr: 'none', checked: false },
+  { id: 1, name: 'أحمد محمد العمري', phone: '0501234567', status: 'confirmed', qr: 'used', checked: true , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14:30:00Z', plusOne: true },
+  { id: 2, name: 'سارة عبدالله الخالدي', phone: '0559876543', status: 'confirmed', qr: 'sent', checked: false , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14:30:00Z', plusOne: false },
+  { id: 3, name: 'محمد يوسف الشمري', phone: '0531112233', status: 'pending', qr: 'pending', checked: false , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14:30:00Z', plusOne: false },
+  { id: 4, name: 'نورة سعد القحطاني', phone: '0567890123', status: 'declined', qr: 'none', checked: false , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14：30：00Z', plusOne: false },
+  { id: 5, name: 'عبدالرحمن فهد الدوسري', phone: '0543219876', status: 'confirmed', qr: 'sent', checked: false , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14：30：00Z', plusOne: true },
+  { id: 7, name: 'فيصل عمر الغامدي', phone: '0556789012', status: 'confirmed', qr: 'used', checked: true , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14:30:00Z', plusOne: true },
+  { id: 8, name: 'منى ناصر الزهراني', phone: '0534567890', status: 'pending', qr: 'pending', checked: false , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14:30:00Z', plusOne: false },
+  { id: 9, name: 'خالد سليمان البقمي', phone: '0548765432', status: 'confirmed', qr: 'sent', checked: false , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14:30:00Z', plusOne: false },
+  { id: 10, name: 'لمياء حسن العتيبي', phone: '0522334455', status: 'declined', qr: 'none', checked: false , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14：30：00Z', plusOne: false },
 ]
 
 export const eventList: EventItem[] = [
   { id: 1, name: 'حفل زفاف أحمد وسارة', date: '١٥ مارس ٢٠٢٥', time: '٧:٠٠ م', location: 'قاعة الفردوس، الرياض', guests: 250, confirmed: 180, img: 'photo-1519741497674-611481863552', tag: 'زفاف' },
-  { id: 2, name: 'حفل تخرج محمد العمري', date: '٢٢ أبريل ٢٠٢٥', time: '٤:٠0 م', location: 'فندق هيلتون، جدة', guests: 100, confirmed: 75, img: 'photo-1523050854058-8df90110c9f1', tag: 'تخرج' },
-  { id: 3, name: 'عيد ميلاد نورة', date: '١٠ مايو ٢٠٢٥', time: '٦:٠٠ م', location: 'فيلا الورود، الدمام', guests: 50, confirmed: 42, img: 'photo-1464349095431-e9a21285b5f3', tag: 'عيد ميلاد' },
+  { id: 2, name: 'عيد ميلاد ليلى', date: '٢٢ أبريل ٢٠٢٥', time: '٦:٠٠ م', location: 'مطعم البستان، جدة', guests: 100, confirmed: 75, img: 'photo-1464349095431-e9a21285b5f3', tag: 'عيد ميلاد' },
+  { id: 3, name: 'حفل تخرج خالد', date: '١٠ مايو ٢٠٢٥', time: '٥:٠٠ م', location: 'قاعة النجاح، الدمام', guests: 150, confirmed: 120, img: 'photo-1523050854058-8df90110c9f1', tag: 'تخرج' },
   { id: 4, name: 'مؤتمر شركة الابتكار', date: '٥ يونيو ٢٠٢٥', time: '٩:٠٠ ص', location: 'مركز الملك عبدالله، الرياض', guests: 500, confirmed: 320, img: 'photo-1558618666-fcd25c85cd64', tag: 'أعمال' },
 ]
 
@@ -46,4 +45,16 @@ export const templateList: TemplateItem[] = [
   { id: 'birthday', name: 'عيد ميلاد', icon: Cake, color: G.warning, img: 'photo-1464349095431-e9a21285b5f3', h: 210 },
   { id: 'graduation', name: 'تخرج', icon: GraduationCap, color: G.purple, img: 'photo-1523050854058-8df90110c9f1', h: 250 },
   { id: 'business', name: 'أعمال', icon: Briefcase, color: G.charcoal, img: 'photo-1558618666-fcd25c85cd64', h: 230 },
+]
+export const initialGuests: Guest[] = [
+  { id: 1, name: 'أحمد محمد العمري', phone: '0501234567', status: 'confirmed', qr: 'used', checked: true , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14:30:00Z', plusOne: true },
+  { id: 2, name: 'سارة عبدالله الخالدي', phone: '0559876543', status: 'confirmed', qr: 'sent', checked: false , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14:30:00Z', plusOne: false },
+  { id: 3, name: 'محمد يوسف الشمري', phone: '0531112233', status: 'pending', qr: 'pending', checked: false , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14:30:00Z', plusOne: false },
+  { id: 4, name: 'نورة سعد القحطاني', phone: '0567890123', status: 'declined', qr: 'none', checked: false , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14:30:00Z', plusOne: false },
+  { id: 5, name: 'عبدالرحمن فهد الدوسري', phone: '0543219876', status: 'confirmed', qr: 'sent', checked: false , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14:30:00Z', plusOne: false },
+  { id: 6, name: 'ريم خالد المطيري', phone: '0512345678', status: 'pending', qr: 'pending', checked: false , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14：30：00Z', plusOne: false },
+  { id: 7, name: 'فيصل عمر الغامدي', phone: '0556789012', status: 'confirmed', qr: 'used', checked: true , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14:30:00Z', plusOne: false },
+  { id: 8, name: 'منى ناصر الزهراني', phone: '0534567890', status: 'pending', qr: 'pending', checked: false , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14:30:00Z', plusOne: false },
+  { id: 9, name: 'خالد سليمان البقمي', phone: '0548765432', status: 'confirmed', qr: 'sent', checked: false , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14:30:00Z', plusOne: false },
+  { id: 10, name: 'لمياء حسن العتيبي', phone: '0522334455', status: 'declined', qr: 'none', checked: false , eventName: 'حفل زفاف أحمد وسارة', updatedAt: '2025-03-10T14:30:00Z', plusOne: false },
 ]

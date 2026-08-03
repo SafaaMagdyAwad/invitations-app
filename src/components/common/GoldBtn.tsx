@@ -1,5 +1,10 @@
 export function GoldBtn({ children, onClick, className = '', small = false }: {
-  children: React.ReactNode; onClick?: () => void; className?: string; small?: boolean
+  children: React.ReactNode;
+  onClick?: () => void;
+  className?: string;
+  small?: boolean;
+  disabled?: boolean;
+  type?: "button" | "submit";
 }) {
   return (
     <button

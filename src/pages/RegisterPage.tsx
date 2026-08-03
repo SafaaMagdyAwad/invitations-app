@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import { Users, Mail, Lock, Heart, ArrowUpRight } from 'lucide-react'
 import { G } from '../constants/theme'
-import { Page } from '../types'
 import { GoldBtn } from '../components/common/GoldBtn'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
-export function RegisterPage({ setPage }: { setPage: (p: Page) => void }) {
+export function RegisterPage() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
-  const backendURI="https://invitation-app-backend.vercel.app/api/auth/register";
-//   const backendURI="http://localhost:5000/api/auth/register";
+const navigate = useNavigate();
+  // const backendURI="https://invitation-app-backend.vercel.app/api/auth/register";
+  const backendURI="http://localhost:5000/api/auth/register";
 
 //   name , email , password
 const handleSubmit = async (e: React.FormEvent) => {
@@ -35,15 +35,15 @@ const handleSubmit = async (e: React.FormEvent) => {
     if (response.ok) {
       console.log(data);
       //save the data to localstorage
-      toast.success("Registration successful!", {
+      toast.success("مرحبا بك معنا , استمتع بالتطبيق 😘", {
           position: "top-right",
           autoClose: 5000,
         });
         localStorage.setItem("user", JSON.stringify(data));   
-      setPage("dashboard");
-    } else {
+        navigate("/dashboard");
+      } else {
       console.error(data.message);
-      toast.error(data.message, {
+      toast.error("من فضلك حاول في وقت لاحق , نعمل على اصلاح العطل", {
         position: "top-right",
         autoClose: 5000,
       });
@@ -75,7 +75,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         {/* الشعار */}
         <div className="text-center mb-8">
           <button
-            onClick={() => setPage('landing')}
+            onClick={() => navigate('/landing')}
             className="inline-flex items-center gap-3 mb-3 group"
           >
             <div className="w-12 h-12 rounded-2xl flex items-center justify-center gold-gradient shadow-gold-sm transition-transform group-hover:scale-105">
@@ -184,7 +184,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             <p className="text-xs" style={{ color: G.charcoalSoft }}>
               لديك حساب بالفعل؟{' '}
               <button
-                onClick={() => setPage('login')}
+                onClick={() => navigate('/login')}
                 className="font-bold hover:underline"
                 style={{ color: G.gold }}
               >

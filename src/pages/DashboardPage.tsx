@@ -1,14 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Plus, Calendar, Users, Send, CheckCircle2, Clock, XCircle, ArrowUpLeft, ChevronLeft } from 'lucide-react'
 import { G } from '../constants/theme'
-import { Page } from '../types'
 import { GoldBtn } from '../components/common/GoldBtn'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
-interface DashboardPageProps {
-  setPage: (p: Page) => void
-}
 
-export function DashboardPage({ setPage }: DashboardPageProps) {
+
+export function DashboardPage() {
   const user = React.useMemo(() => {
     try {
       return JSON.parse(localStorage.getItem('user') || '{}')
@@ -16,7 +15,8 @@ export function DashboardPage({ setPage }: DashboardPageProps) {
       return {}
     }
   }, [])
-
+  
+ const userToken=user.token;
   // Dummy data for dashboard summary
   const stats = [
     { title: 'إجمالي الفعاليات', value: '12', icon: Calendar, color: G.gold },
@@ -31,6 +31,42 @@ export function DashboardPage({ setPage }: DashboardPageProps) {
     { id: 3, title: 'حفل تخرج خالد', date: '05 أكتوبر 2026', guestsCount: 80, status: 'مكتمل' },
   ]
 
+const navigate = useNavigate();
+
+const getDashboardData = async () => {
+  try {
+    const response = await fetch("http://localhost:5000/api/dashboard/overall", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${userToken}`
+      },
+
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log("Dashboard Data:", data);
+      toast.success("تم جلب البيانات بنجاح!", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+    }
+
+  
+  
+  } catch (error) {
+    console.error("Error fetching dashboard data:", error);
+  }
+}
+
+  useEffect(() => {
+    if (!userToken) {
+      navigate("/login");
+    }
+    //call api
+    getDashboardData();
+  }, [userToken, navigate]);
   return (
     <div
       className="min-h-screen pt-24 pb-16 px-4 sm:px-6 max-w-7xl mx-auto space-y-8"
@@ -46,7 +82,7 @@ export function DashboardPage({ setPage }: DashboardPageProps) {
             إليك نظرة عامة على مناسباتك والدعوات التي قمت بإنشائها.
           </p>
         </div>
-        <GoldBtn onClick={() => setPage('events')} className="flex items-center gap-2 self-start md:self-auto px-5 py-3">
+        <GoldBtn onClick={() => navigate('/events-control')} className="flex items-center gap-2 self-start md:self-auto px-5 py-3">
           <Plus className="w-5 h-5" />
           إنشاء مناسبة جديدة
         </GoldBtn>
@@ -86,7 +122,7 @@ export function DashboardPage({ setPage }: DashboardPageProps) {
               أحدث المناسبات
             </h2>
             <button
-              onClick={() => setPage('events')}
+              onClick={() => navigate('/events')}
               className="text-xs font-semibold flex items-center gap-1 hover:underline"
               style={{ color: G.gold }}
             >
@@ -127,7 +163,7 @@ export function DashboardPage({ setPage }: DashboardPageProps) {
                     {event.status}
                   </span>
                   <button
-                    onClick={() => setPage('events')}
+                    onClick={() => navigate('/events')}
                     className="p-2 rounded-lg hover:bg-amber-100/50 transition-colors"
                   >
                     <ArrowUpLeft className="w-4 h-4" style={{ color: G.charcoalSoft }} />
@@ -147,7 +183,7 @@ export function DashboardPage({ setPage }: DashboardPageProps) {
             </h2>
             <div className="grid grid-cols-2 gap-3">
               <button
-                onClick={() => setPage('guests')}
+                onClick={() => navigate('/guests')}
                 className="p-4 rounded-2xl flex flex-col items-center justify-center gap-2 text-center transition-all hover:bg-amber-50"
                 style={{ background: G.beige, border: `1px solid ${G.border}` }}
               >
@@ -157,7 +193,7 @@ export function DashboardPage({ setPage }: DashboardPageProps) {
                 </span>
               </button>
               <button
-                onClick={() => setPage('templates')}
+                onClick={() => navigate('/templates')}
                 className="p-4 rounded-2xl flex flex-col items-center justify-center gap-2 text-center transition-all hover:bg-amber-50"
                 style={{ background: G.beige, border: `1px solid ${G.border}` }}
               >

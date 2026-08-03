@@ -1,14 +1,14 @@
-import React from 'react'
 import { QrCode, MessageCircle, TrendingUp, Sparkles, Eye, Calendar, MapPin, Check, Users } from 'lucide-react'
 import { G } from '../constants/theme'
-import { Page } from '../types'
 import { templateList } from '../data/mockData'
 import  {GoldBtn} from '../components/common/GoldBtn'
 import  { OutlineBtn } from '../components/common/OutlineBtn'
 import  {Divider } from '../components/common/Divider'
 import { FAQItem } from '../components/layout/FAQItem'
+import { useNavigate } from 'react-router-dom'
 
-export function LandingPage({ setPage }: { setPage: (p: Page) => void }) {
+export function LandingPage() {
+  const navigate = useNavigate();
   const features = [
     { icon: QrCode, title: 'رموز QR ذكية', desc: 'رمز فريد لكل ضيف — مسح فوري عند الدخول مع تأكيد تلقائي.' },
     { icon: MessageCircle, title: 'واتساب تلقائي', desc: 'إرسال الدعوات للجميع بنقرة واحدة مع تتبع حالة التسليم.' },
@@ -90,11 +90,11 @@ export function LandingPage({ setPage }: { setPage: (p: Page) => void }) {
             </p>
 
             <div className="anim-fade-up anim-delay-3 flex flex-wrap gap-4 mb-12">
-              <GoldBtn onClick={() => setPage('register')}>
+              <GoldBtn onClick={() => navigate('/register')}>
                 <Sparkles className="w-4 h-4" />
                 ابدأ إنشاء دعوتك
               </GoldBtn>
-              <OutlineBtn onClick={() => setPage('invitation')}>
+              <OutlineBtn onClick={() => navigate('/invitation')}>
                 <Eye className="w-4 h-4" />
                 شاهد مثالاً
               </OutlineBtn>
@@ -224,7 +224,7 @@ export function LandingPage({ setPage }: { setPage: (p: Page) => void }) {
             {templateList.slice(0, 4).map(({ id, name, icon: Icon, color, img }) => (
               <div
                 key={id}
-                onClick={() => setPage('templates')}
+                onClick={() => navigate('/templates')}
                 className="group rounded-2xl overflow-hidden cursor-pointer transition-all hover:-translate-y-1.5 hover:shadow-gold-md"
                 style={{ border: `1.5px solid ${G.border}` }}
               >
@@ -246,7 +246,7 @@ export function LandingPage({ setPage }: { setPage: (p: Page) => void }) {
             ))}
           </div>
           <div className="text-center mt-10">
-            <OutlineBtn onClick={() => setPage('templates')}>
+            <OutlineBtn onClick={() => navigate('/templates')}>
               <Eye className="w-4 h-4" />
               عرض جميع القوالب
             </OutlineBtn>
@@ -324,7 +324,7 @@ export function LandingPage({ setPage }: { setPage: (p: Page) => void }) {
                   ))}
                 </ul>
                 <button
-                  onClick={() => setPage('register')}
+                  onClick={() => navigate('/register')}
                   className="w-full py-3.5 rounded-2xl font-bold transition-all hover:scale-[1.02]"
                   style={{
                     background: plan.popular ? 'linear-gradient(135deg, #C9A227, #E8C84A)' : 'transparent',

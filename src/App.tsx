@@ -4,6 +4,10 @@ import { LandingPage } from "./pages/LandingPage";
 import { LoginPage } from "./pages/LoginPage";
 import { RegisterPage } from "./pages/RegisterPage";
 import { DashboardPage } from "./pages/DashboardPage";
+import { CreateEventPage } from "./pages/CreateEventPage";
+import { TemplatesPage } from "./pages/TemplatesPage";
+import { GuestsPage } from "./pages/GuestsPage";
+import { EventsPage } from "./pages/EventsPage";
 
 
 export default function App() {
@@ -24,6 +28,11 @@ export default function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/events-control" element={<CreateEventPage />} />
+        <Route path="/events" element={<EventsPage />} />
+        <Route path="/guests" element={<GuestsPage />} />
+        <Route path="/templates" element={<TemplatesPage />} />
+    
       </Routes>
     </div>
   );

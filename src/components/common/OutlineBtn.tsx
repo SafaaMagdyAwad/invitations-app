@@ -1,7 +1,12 @@
 import { G } from '../../constants/theme'
 
 export function OutlineBtn({ children, onClick, className = '' }: {
-  children: React.ReactNode; onClick?: () => void; className?: string
+  children: React.ReactNode;
+  onClick?: () => void;
+  className?: string;
+  small?: boolean;
+  disabled?: boolean;
+  type?: "button" | "submit";
 }) {
   return (
     <button

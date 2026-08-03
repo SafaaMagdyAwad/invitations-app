@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import { Mail, Lock, Heart, ArrowUpRight, Loader2 } from 'lucide-react'
 import { G } from '../constants/theme'
-import { Page } from '../types'
 import { GoldBtn } from '../components/common/GoldBtn'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
-export function LoginPage({ setPage }: { setPage: (p: Page) => void }) {
+export function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
-
-  const backendURI = "https://invitation-app-backend.vercel.app/api/auth/login";
+  const navigate = useNavigate();
+  // const backendURI = "https://invitation-app-backend.vercel.app/api/auth/login";
+  const backendURI = "http://localhost:5000/api/auth/login";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,7 +37,7 @@ export function LoginPage({ setPage }: { setPage: (p: Page) => void }) {
           autoClose: 3000,
         });
         localStorage.setItem("user", JSON.stringify(data));
-        setPage("dashboard");
+        navigate("/dashboard");
       } else {
         toast.error(data.message || "حدث خطأ أثناء تسجيل الدخول", {
           position: "top-right",
@@ -72,7 +73,7 @@ export function LoginPage({ setPage }: { setPage: (p: Page) => void }) {
         {/* الشعار */}
         <div className="text-center mb-8">
           <button
-            onClick={() => setPage('landing')}
+            onClick={() => navigate('/landing')}
             className="inline-flex items-center gap-3 mb-3 group"
           >
             <div className="w-12 h-12 rounded-2xl flex items-center justify-center gold-gradient shadow-gold-sm transition-transform group-hover:scale-105">
@@ -171,7 +172,7 @@ export function LoginPage({ setPage }: { setPage: (p: Page) => void }) {
             <p className="text-xs" style={{ color: G.charcoalSoft }}>
               ليس لديك حساب؟{' '}
               <button
-                onClick={() => setPage('register')}
+                onClick={() => navigate('/register')}
                 className="font-bold hover:underline"
                 style={{ color: G.gold }}
               >

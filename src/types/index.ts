@@ -1,3 +1,4 @@
+import { LucideIcon } from 'lucide-react'
 import React from 'react'
 
 export type Page =
@@ -22,6 +23,9 @@ export interface Guest {
   status: string
   qr: string
   checked: boolean
+  eventName: string
+  updatedAt: string
+  plusOne?: boolean
 }
 
 export interface EventItem {
@@ -39,7 +43,7 @@ export interface EventItem {
 export interface TemplateItem {
   id: string
   name: string
-  icon: React.ComponentType<{ className?: string }>
+  icon: LucideIcon
   color: string
   img: string
   h: number
