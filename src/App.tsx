@@ -8,6 +8,7 @@ import { CreateEventPage } from "./pages/CreateEventPage";
 import { TemplatesPage } from "./pages/TemplatesPage";
 import { GuestsPage } from "./pages/GuestsPage";
 import { EventsPage } from "./pages/EventsPage";
+import { SettingsPage } from "./pages/SettingsPage";
 
 
 export default function App() {
@@ -32,7 +33,8 @@ export default function App() {
         <Route path="/events" element={<EventsPage />} />
         <Route path="/guests" element={<GuestsPage />} />
         <Route path="/templates" element={<TemplatesPage />} />
-    
+        <Route path="*" element={<LandingPage />} />
+        <Route path="settings" element={<SettingsPage />} />
       </Routes>
     </div>
   );
